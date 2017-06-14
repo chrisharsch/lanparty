@@ -22,7 +22,6 @@ gem 'sass'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap-switch-rails'
-gem 'bootstrap-slider-rails'
 
 gem 'jquery-ui-rails'
 # Use CoffeeScript for .coffee assets and views
@@ -55,10 +54,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-gem 'seed_migration'
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
-gem 'erubis'
-gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
-gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'

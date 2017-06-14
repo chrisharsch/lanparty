@@ -20,7 +20,7 @@
       </thead>
 
       <tbody>
-      <% @ausgabes.each do |pizza| %>
+      <% @pays.each do |pizza| %>
           <tr>
             <td><%= pizza.id %></td>
             <td><%= pizza.pizzanr %></td>
@@ -29,9 +29,9 @@
             <td><%= pizza.augegeben ? 'Ja' : 'Nein' %></td>
             <td><%= pizza.name %></td>
             <td><%= pizza.ip %></td>
-            <td><%= link_to '<span class="glyphicon glyphicon-ok"></span>'.html_safe ,ausgabe_pizza_done_path(pizza), method: :post, class: 'btn btn-primary' %></td>
+            <td><%= link_to '<span class="glyphicon glyphicon-ok"></span>'.html_safe ,pay_pizza_done_path(pizza), method: :post, class: 'btn btn-primary' %></td>
 
-           </tr>
+          </tr>
       <% end %>
       </tbody>
     </table>

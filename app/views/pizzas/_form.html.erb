@@ -47,8 +47,7 @@
         <div class="field form-group" id="user_gender_group">
           <div class="field">
             <%= form.label :ipadresse %>
-            <% ip = Socket::getaddrinfo(Socket.gethostname,"echo",Socket::AF_INET)[0][3] %>
-            <%= form.text_field :ip, id: :pizza_ip, :value => ip ? ip : '', class: 'form-control', required: true, :readonly => true %>
+            <%= form.text_field :ip, id: :pizza_ip, :value => request.remote_ip ? request.remote_ip : '', class: 'form-control', required: true, :readonly => true %>
           </div>
         </div>
       </div>

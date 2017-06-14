@@ -4,7 +4,7 @@ class PizzasController < ApplicationController
   # GET /pizzas
   # GET /pizzas.json
   def index
-    @pizzas = Pizza.where(ip: Socket::getaddrinfo(Socket.gethostname,"echo",Socket::AF_INET)[0][3])
+    @pizzas = Pizza.where(ip: request.remote_ip)
   end
 
   # GET /pizzas/1

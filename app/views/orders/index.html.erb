@@ -1,0 +1,38 @@
+
+
+<div class="container">
+  <h1>Bestellungen</h1>
+
+  <p id="notice"><%= notice %></p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-condensed">
+
+
+      <thead>
+      <tr>
+        <th>Anzahl</th>
+        <th>Pizzanr</th>
+        <th>Größe</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @pizzas_small.each do |pizza| %>
+          <tr>
+            <td><%= Pizza.where(pizzanr: pizza, grosse: false).count() %></td>
+            <td><%= pizza %></td>
+            <td>Klein</td>
+          </tr>
+      <% end %>
+      <% @pizzas_large.each do |pizza| %>
+          <tr>
+            <td><%= Pizza.where(pizzanr: pizza, grosse: true).count() %></td>
+            <td><%= pizza %></td>
+            <td>Groß</td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+  </div>
+</div>

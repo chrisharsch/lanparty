@@ -1,0 +1,80 @@
+<% require 'socket' %>
+
+<%= form_with(model: pizza, local: true) do |form| %>
+    <% if pizza.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(pizza.errors.count, "error") %> prohibited this pizza from being saved:</h2>
+
+          <ul>
+            <% pizza.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row justify-content-md-center" id="user_gender_row">
+      <div class="col-md-12" id="user_gender_col">
+        <div class="field form-group" id="user_gender_group">
+          <div class="field">
+            <%= form.label :name %>
+            <%= form.text_field :name, id: :pizza_name, class: 'form-control', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" id="user_gender_col">
+        <div class="field form-group" id="user_gender_group">
+          <div class="field">
+            <%= form.label :pizzanr %>
+            <%= form.number_field :pizzanr, id: :pizza_pizzanr, class: 'form-control', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-md-center" id="user_submit_row">
+        <div class="col-md-4" id="user_submit_col">
+        </div>
+        <div class="col-md-4" id="user_submit_col">
+          <div class="field">
+            <%= form.label :Gross?, for: :pizza_grosse %>
+            <%= form.check_box :grosse, id: :pizza_grosse, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" id="user_gender_col">
+        <div class="field form-group" id="user_gender_group">
+          <div class="field">
+            <%= form.label :ipadresse %>
+            <% ip = Socket::getaddrinfo(Socket.gethostname,"echo",Socket::AF_INET)[0][3] %>
+            <%= form.text_field :ip, id: :pizza_ip, :value => ip ? ip : '', class: 'form-control', required: true, :readonly => true %>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <div class="row justify-content-md-center" id="user_submit_row">
+        <div class="col-md-4" id="user_submit_col">
+        </div>
+        <div class="col-md-4" id="user_submit_col">
+          <div class="actions" id="user_submit_action">
+            <%= form.submit 'Speichern', :class => 'btn btn-success btn-lg btn-block', id: :submit %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+<script>
+    $(document).ready(function () {
+        $('input:checkbox').each(function () {
+            $(this).attr('data-on-text', 'Ja');
+            $(this).attr('data-off-text', 'Nein');
+            $(this).attr('data-label-text', $('[for="' + $(this).attr('id') + '"]').text());
+            $(this).bootstrapSwitch();
+            $(this).attr('align', 'center');
+            $('[for="' + $(this).attr('id') + '"]').hide();
+        });
+    });
+</script>

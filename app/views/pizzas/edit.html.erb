@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-12">
+      <h1>Pizzabestellung bearbeiten</h1>
+    </div>
+  </div>
+
+  <%= render 'form', pizza: @pizza %>
+  <br>
+  <div class="row justify-content-md-center" id="user_submit_row">
+    <div class="col-md-4" id="user_submit_col">
+    </div>
+    <div class="col-md-4" id="user_submit_col">
+      <%= link_to 'Zurück', pizzas_path, class: 'btn btn-warning btn-lg btn-block' %>
+    </div>
+  </div>
+</div>

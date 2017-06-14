@@ -1,0 +1,47 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-condensed">
+      <tbody>
+      <tr>
+        <td><strong>WICHTIG!!!! Bestellnumer:</strong></td>
+        <td><%= @pizza.id %></td>
+      </tr>
+      <tr>
+        <td><strong>Name:</strong></td>
+        <td><%= @pizza.name %></td>
+      </tr>
+      <tr>
+        <td><strong>Ip:</strong></td>
+        <td> <%= @pizza.ip %></td>
+      </tr>
+      <tr>
+        <td><strong>Pizzanr:</strong></td>
+        <td>  <%= @pizza.pizzanr %></td>
+      </tr>
+      <tr>
+        <td><strong>Größe:</strong></td>
+        <td>  <%= @pizza.grosse ? 'Groß' : 'Klein'%></td>
+      </tr>
+      <tr>
+        <td><strong>Bezahlt:</strong></td>
+        <td>  <%= @pizza.bezahlt ? 'Ja' : 'Nein' %></td>
+      </tr>
+      <tr>
+        <td><strong>Augegeben:</strong></td>
+        <td>  <%= @pizza.augegeben ? 'Ja' : 'Nein' %></td>
+      </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <%= link_to 'Zurück', pizzas_path, class: 'btn btn-warning btn-lg btn-block' %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'Bearbeiten', edit_pizza_path(@pizza), class: 'btn btn-info btn-lg btn-block' %>
+    </div>
+  </div>
+</div>

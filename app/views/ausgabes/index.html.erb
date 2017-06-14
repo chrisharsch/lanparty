@@ -9,34 +9,31 @@
       <thead>
       <tr>
         <th>Bestellnummer</th>
+        <th>Pizzanr</th>
+        <th>Bezahlt</th>
+        <th>Größe</th>
+        <th>Ausgegeben</th>
         <th>Name</th>
         <th>Ip</th>
-        <th>Pizzanr</th>
-        <th>Größe</th>
-        <th>Bezahlt</th>
-        <th>Ausgegeben</th>
         <th colspan="3"></th>
       </tr>
       </thead>
 
       <tbody>
-      <% @pizzas.each do |pizza| %>
+      <% @ausgabes.each do |pizza| %>
           <tr>
             <td><%= pizza.id %></td>
+            <td><%= pizza.pizzanr %></td>
+            <td><%= pizza.bezahlt ? 'Ja' : 'Nein' %></td>
+            <td><%= pizza.grosse ? 'Groß' : 'Klein' %></td>
+            <td><%= pizza.augegeben ? 'Ja' : 'Nein' %></td>
             <td><%= pizza.name %></td>
             <td><%= pizza.ip %></td>
-            <td><%= pizza.pizzanr %></td>
-            <td><%= pizza.grosse ? 'Groß' : 'Klein' %></td>
-            <td><%= pizza.bezahlt ? 'Ja' : 'Nein' %></td>
-            <td><%= pizza.augegeben ? 'Ja' : 'Nein' %></td>
-            <td><%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_pizza_path(pizza), class: 'btn btn-info' %></td>
-            <td><%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, pizza, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %></td>
-          </tr>
+            <td><%= link_to '<span class="glyphicon glyphicon-ok"></span>'.html_safe, pizza, method: :delete, class: 'btn btn-primary' %></td>
+           </tr>
       <% end %>
       </tbody>
     </table>
-
     <br>
   </div>
-  <%= link_to 'Bestellung aufgeben', new_pizza_path, class: 'btn btn-success' %>
 </div>

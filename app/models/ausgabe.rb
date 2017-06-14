@@ -1,0 +1,2 @@
+class Ausgabe < ApplicationRecord
+end

@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <h1>Bestellungen</h1>
 
@@ -18,18 +16,22 @@
 
       <tbody>
       <% @pizzas_small.each do |pizza| %>
-          <tr>
-            <td><%= Pizza.where(pizzanr: pizza, grosse: false).count() %></td>
-            <td><%= pizza %></td>
-            <td>Klein</td>
-          </tr>
+          <% unless pizza.nil? %>
+              <tr>
+                <td><%= Pizza.where(pizzanr: pizza, grosse: false).count() %></td>
+                <td><%= pizza %></td>
+                <td>Klein</td>
+              </tr>
+          <% end %>
       <% end %>
       <% @pizzas_large.each do |pizza| %>
-          <tr>
-            <td><%= Pizza.where(pizzanr: pizza, grosse: true).count() %></td>
-            <td><%= pizza %></td>
-            <td>Groß</td>
-          </tr>
+          <% unless pizza.nil? %>
+              <tr>
+                <td><%= Pizza.where(pizzanr: pizza, grosse: true).count() %></td>
+                <td><%= pizza %></td>
+                <td>Groß</td>
+              </tr>
+          <% end %>
       <% end %>
       </tbody>
     </table>

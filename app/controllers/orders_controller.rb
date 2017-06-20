@@ -7,13 +7,14 @@ class OrdersController < ApplicationController
     @pizzas = Pizza.all
     pizzanumbers = Array.new(@pizzas.length)
     i = 0
-    @pizzas.each do |pizzas|
-      unless (pizzanumbers.include?(pizzas.pizzanr))
-        pizzanumbers[i] = pizzas.pizzanr
+    @pizzas.each do |pizza|
+      unless pizzanumbers.include?(pizza.pizzanr)
+        pizzanumbers[i] = pizza.pizzanr
       end
-      i =+1
+      i = i + 1
     end
     p pizzanumbers
+    pizzanumbers.sort { |a,b| a.to_i <=> b.to_i }
     @pizzas_small = Array.new(i)
     @pizzas_large = Array.new(i)
     i = 0
@@ -22,11 +23,11 @@ class OrdersController < ApplicationController
       unless number.nil?
         unless Pizza.where(pizzanr: number, grosse: false).first.nil?
           @pizzas_small[i] = Pizza.where(pizzanr: number, grosse: false).select("pizzanr").first.pizzanr
-          i =+1
+          i = i + 1
         end
         unless Pizza.where(pizzanr: number, grosse: true).first.nil?
           @pizzas_large[j] = Pizza.where(pizzanr: number, grosse: true).select("pizzanr").first.pizzanr
-          j =+1
+          j = j + 1
         end
       end
 
